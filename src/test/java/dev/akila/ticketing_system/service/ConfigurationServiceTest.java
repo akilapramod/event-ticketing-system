@@ -30,10 +30,7 @@ class ConfigurationServiceTest {
 
     @Test
     void testLoadAndSaveConfiguration(@TempDir Path tempDir) throws Exception {
-        // Set a test file path in temp directory
-        File testFile = tempDir.resolve("test-config.json").toFile();
-        
-        // Create new service with test file path
+        // Create new service with test configuration
         ConfigurationService testService = new ConfigurationService();
         testService.setConfiguration(testConfig);
         testService.saveSystemConfig(testConfig);

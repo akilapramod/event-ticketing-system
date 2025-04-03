@@ -183,7 +183,6 @@ public class TicketingSystemCLI {
         persistence in system configuration.
         */
 
-        Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
 
@@ -257,6 +256,7 @@ public class TicketingSystemCLI {
         */
 
         System.out.println("Exiting the system.");
+        scanner.close();
         System.exit(0);
     }
 

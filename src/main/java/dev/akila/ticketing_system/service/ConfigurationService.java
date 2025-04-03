@@ -16,10 +16,6 @@ public class ConfigurationService {
     @Getter
     private Configuration configuration;
 
-    public Configuration getConfiguration() {
-        return this.configuration;
-    }
-
     private final String filePath = "src/main/resources/config.json";
 
 

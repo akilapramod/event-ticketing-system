@@ -14,11 +14,8 @@ public class TicketPool {
     private static final Logger logger = LoggerFactory.getLogger(TicketPool.class);
     private List<Ticket> ticketsList;
     private int maximumTicketCapacity;
-    private int availableTicketCount;
-
     public TicketPool(int availableTicketCount, int maximumTicketCapacity) {
         this.maximumTicketCapacity = maximumTicketCapacity;
-        this.availableTicketCount = availableTicketCount;
         this.ticketsList = Collections.synchronizedList(new LinkedList<>());
         for (int i = 0; i < availableTicketCount; i++) {
             Ticket ticket = new Ticket("Event " + (i + 1), new BigDecimal(10.0));
@@ -80,4 +77,3 @@ public class TicketPool {
         return ticket;
     }
 }
-

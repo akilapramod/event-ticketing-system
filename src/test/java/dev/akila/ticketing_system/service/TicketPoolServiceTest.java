@@ -1,7 +1,6 @@
 package dev.akila.ticketing_system.service;
 
 import dev.akila.ticketing_system.model.Configuration;
-import dev.akila.ticketing_system.model.TicketPool;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
