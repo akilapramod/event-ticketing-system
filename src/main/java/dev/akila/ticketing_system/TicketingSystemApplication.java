@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 
 import java.util.logging.Logger;
@@ -27,6 +28,7 @@ public class TicketingSystemApplication {
     private TicketingSystemCLI ticketingSystemCLI;
 
     @Bean
+    @ConditionalOnMissingBean(name = "disableCLIForTests")
     public CommandLineRunner runCLI() {
          /*
         This method provides a command-line runner bean to initiate the CLI configuration menu.
