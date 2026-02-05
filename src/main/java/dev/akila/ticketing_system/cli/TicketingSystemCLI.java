@@ -9,10 +9,9 @@ import dev.akila.ticketing_system.TicketingSystemApplication;
 import dev.akila.ticketing_system.model.Configuration;
 import dev.akila.ticketing_system.model.TicketPool;
 import dev.akila.ticketing_system.service.ConfigurationService;
-import dev.akila.ticketing_system.service.CustomerVendorService;
+import dev.akila.ticketing_system.service.CustomerService;
 import dev.akila.ticketing_system.service.TicketPoolService;
-import dev.akila.ticketing_system.threads.Customer;
-import dev.akila.ticketing_system.threads.Vendor;
+import dev.akila.ticketing_system.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,11 +27,15 @@ public class TicketingSystemCLI {
     private TicketPoolService ticketPoolService;
 
     @Autowired
-    private CustomerVendorService customerVendorService;
+    private VendorService vendorService;
+
+    @Autowired
+    private CustomerService customerService;
 
 
     public void initiateThreads() {
-            customerVendorService.startThreads();
+            vendorService.startThreads();
+            customerService.startThreads();
 
     }
 
@@ -148,7 +151,7 @@ public class TicketingSystemCLI {
                 }
                 break;
             } catch (InputMismatchException e) {
-                System.out.print("Invalid input. Please enter a valid integer.");
+                System.out.print("Invalid input. Please enter a valid integer: ");
                 scanner.nextLine();
             }
         }

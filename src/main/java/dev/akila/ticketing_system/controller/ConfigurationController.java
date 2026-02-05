@@ -3,7 +3,8 @@ package dev.akila.ticketing_system.controller;
 import dev.akila.ticketing_system.model.Configuration;
 import dev.akila.ticketing_system.service.ConfigurationService;
 import dev.akila.ticketing_system.service.TicketPoolService;
-import dev.akila.ticketing_system.service.CustomerVendorService;
+import dev.akila.ticketing_system.service.CustomerService;
+import dev.akila.ticketing_system.service.VendorService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,12 +13,14 @@ public class ConfigurationController {
 
     private final ConfigurationService configurationService;
     private final TicketPoolService ticketPoolService;
-    final CustomerVendorService customerVendorService;
+    private final CustomerService customerService;
+    private final VendorService vendorService;
 
-    public ConfigurationController(ConfigurationService configurationService, TicketPoolService ticketPoolService, CustomerVendorService customerVendorService) {
+    public ConfigurationController(ConfigurationService configurationService, TicketPoolService ticketPoolService, CustomerService customerService, VendorService vendorService) {
         this.configurationService = configurationService;
         this.ticketPoolService = ticketPoolService;
-        this.customerVendorService = customerVendorService;
+        this.customerService = customerService;
+        this.vendorService = vendorService;
     }
 
     @PostMapping("/set")
@@ -33,12 +36,14 @@ public class ConfigurationController {
 
     @PostMapping("/start")
     public void startSystem() {
-        customerVendorService.startThreads();
+        vendorService.startThreads();
+        customerService.startThreads();
     }
 
     @PostMapping("stop")
     public void stopSystem() {
-        customerVendorService.stopThreads();
+        vendorService.stopThreads();
+        customerService.stopThreads();
 
     }
 
