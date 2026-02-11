@@ -10,7 +10,6 @@
 
 package dev.akila.ticketing_system;
 
-import dev.akila.ticketing_system.cli.TicketingSystemCLI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,16 +27,7 @@ public class TicketingSystemApplication {
 
 
     }
-    @Autowired
-    private TicketingSystemCLI ticketingSystemCLI;
 
-    //this method is used to initiate the CLI
-    @Bean
-    public CommandLineRunner runCLI() {
-        return args -> {
-            ticketingSystemCLI.displayConfigurationMenu();
-        };
-    }
 
 
 }
