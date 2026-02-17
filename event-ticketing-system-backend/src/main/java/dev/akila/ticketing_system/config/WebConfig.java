@@ -22,8 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins(
                         "http://localhost:5173", // Vite dev server
                         "http://localhost:3000", // Alternative React port
-                        "https://*.azurewebsites.net", // Azure Static Web Apps
-                        "https://*.azurestaticapps.net" // Azure Static Web Apps alternative
+                        "https://event-ticketing-webapp.azurewebsites.net" // Azure frontend
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
